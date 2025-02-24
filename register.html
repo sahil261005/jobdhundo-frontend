@@ -18,27 +18,22 @@
 
     <script>
       async function register() {
-        let username = document.getElementById("username").value;
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
+  let username = document.getElementById("username").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
 
-        let res = await fetch(
-          "https://jobdhundo-backend.onrender.com/api/auth/register",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, email, password }),
-          }
-        );
+  let res = await fetch("https://jobdhundo-backend-1.onrender.com/api/auth/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, email, password }),
+  });
 
-        let data = await res.json();
-        if (res.status === 201) {
-          alert("Registration Successful! You can now login.");
-          window.location.href = "login.html";
-        } else {
-          alert(data.message);
-        }
-      }
-    </script>
-  </body>
-</html>
+  let data = await res.json();
+  if (res.status === 201) {
+    alert("Registration Successful! You can now login.");
+    window.location.href = "login.html";
+  } else {
+    alert(data.message);
+  }
+}
+
