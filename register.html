@@ -23,7 +23,8 @@
     let password = document.getElementById("password").value;
 
     try {
-      let res = await fetch("https://jobdhundo-backend-1.onrender.com/api/auth/register", {
+      fetch("https://jobdhundo-backend-1.onrender.com/api/auth/register", { ... })
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
