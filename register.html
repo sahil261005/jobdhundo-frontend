@@ -18,40 +18,36 @@
 
     <script>
       async function register() {
-        let username = document.getElementById("username").value;
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
+  let username = document.getElementById("username").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
 
-        if (!username || !email || !password) {
-          alert("Please fill in all fields.");
-          return;
-        }
+  if (!username || !email || !password) {
+    alert("Please fill in all fields.");
+    return;
+  }
 
-        try {
-          let res = await fetch("https://jobdhundo-backend-1.onrender.com/api/auth/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, email, password }),
-          });
+  console.log("Sending Register Request:", { username, email, password });
 
-          // Debugging logs
-          console.log("Register response status:", res.status);
-          let data = await res.json();
-          console.log("Register response data:", data);
+  try {
+    let res = await fetch("https://jobdhundo-backend-1.onrender.com/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, email, password }),
+    });
 
-          if (res.ok) {
-            alert("✅ Registration Successful! You can now login.");
-            window.location.href = "login.html";
-          } else {
-            alert(data.message || "❌ Registration failed");
-          }
-        } catch (error) {
-          console.error("❌ Error in register:", error);
-          alert("An error occurred during registration. Check the console for details.");
-        }
-      }
-    </script>
-  </body>
-</html>
+    console.log("Register response status:", res.status);
+    let data = await res.json();
+    console.log("Register response data:", data);
 
-
+    if (res.ok) {
+      alert("✅ Registration Successful! You can now login.");
+      window.location.href = "login.html";
+    } else {
+      alert(data.message || "❌ Registration failed");
+    }
+  } catch (error) {
+    console.error("❌ Error in register:", error);
+    alert("An error occurred during registration. Check console.");
+  }
+}
