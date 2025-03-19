@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       title: "Backend Developer",
       company: "TCS",
       location: "Mumbai, India",
-      domain: "Web Development",
+      domain: "Web Deveopment",
     },
     {
       title: "Full Stack Developer",
