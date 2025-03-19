@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       title: "Frontend Developer",
       company: "Infosys",
       location: "Bengaluru, India",
-      domain: "Web Development",
+      domain: "Frontend Development",
     },
     {
       title: "Backend Developer",
